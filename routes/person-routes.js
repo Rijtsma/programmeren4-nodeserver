@@ -1,16 +1,19 @@
 //
 // Hier de person routes
 //
+const express = require('express')
+let routes = express.Router()
+const app = express()
 
+let personlist = []
 
-
-app.get('/api/person', (req, res, next) => {
+app.get('/person', (req, res, next) => {
 	console.log('get was called')
 
 	res.status(200).json(personlist).end()
 })
 
-app.get('/api/person/:id', (req, res, next) => {
+app.get('/person/:id', (req, res, next) => {
 	console.log('get was called')
 	const id = req.params.id
 
@@ -26,7 +29,7 @@ app.get('/api/person/:id', (req, res, next) => {
 	}
 })
 
-app.post('/api/person', (req, res, next) => {
+app.post('/person', (req, res, next) => {
 	console.log('post was called')
 	console.log(req.body)
 
@@ -39,3 +42,4 @@ app.post('/api/person', (req, res, next) => {
 })
 
 
+module.exports = routes
